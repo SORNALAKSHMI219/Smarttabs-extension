@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SmartTabs Settings</title>
+<style>
+  body {
+    margin: 0;
+    background: #0F172A;
+    color: #E7EBF3;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px;
+  }
+  .panel {
+    width: 460px;
+    background: #16213A;
+    border: 1px solid #28344B;
+    border-radius: 14px;
+    padding: 28px 28px 24px;
+  }
+  h1 { font-size: 17px; margin: 0 0 4px; }
+  p.sub { color: #8a93ab; font-size: 12.5px; margin: 0 0 22px; line-height: 1.5; }
+  label { display: block; font-size: 12px; color: #AAB4C8; margin-bottom: 6px; font-weight: 600; }
+  input[type="text"], input[type="password"], select {
+    width: 100%;
+    background: #0F172A;
+    border: 1px solid #28344B;
+    color: #E7EBF3;
+    border-radius: 8px;
+    padding: 10px 11px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  input:focus, select:focus { border-color: #6366F1; }
+  .toggle-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .toggle-row label { margin: 0; }
+  button {
+    background: #6366F1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:hover { background: #4F46E5; }
+  .note {
+    margin-top: 16px;
+    font-size: 11.5px;
+    color: #6B7894;
+    line-height: 1.6;
+  }
+  #savedMsg { color: #2DD4BF; font-size: 12px; margin-left: 10px; }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <h1>SmartTabs Settings</h1>
+    <p class="sub">By default, grouping runs fully offline using keyword similarity — nothing leaves your browser. Optionally, enable AI-powered grouping for more accurate topic names using your own Anthropic API key.</p>
+
+    <div class="toggle-row">
+      <label for="useLLM">Use AI-powered grouping</label>
+      <input type="checkbox" id="useLLM" style="width:auto;margin:0;" />
+    </div>
+
+    <label for="apiKey">Anthropic API key</label>
+    <input type="password" id="apiKey" placeholder="sk-ant-..." />
+
+    <label for="model">Model</label>
+    <select id="model">
+      <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 (fast & cheap)</option>
+      <option value="claude-sonnet-4-6">Claude Sonnet 4.6 (more accurate)</option>
+    </select>
+
+    <button id="saveBtn">Save settings</button>
+    <span id="savedMsg" style="display:none;">Saved ✓</span>
+
+    <p class="note">Get a key at console.anthropic.com. Your key is stored only in this browser's local extension storage and is sent directly to Anthropic's API — never to any third-party server.</p>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
