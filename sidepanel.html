@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SmartTabs</title>
+<link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span class="brand-name">SmartTabs</span>
+    </div>
+    <button id="settingsBtn" class="icon-btn" title="Settings">⚙</button>
+  </header>
+
+  <nav class="tabbar" role="tablist">
+    <button class="tabbar-item is-active" data-view="groups">Groups</button>
+    <button class="tabbar-item" data-view="cleanup">Cleanup</button>
+    <button class="tabbar-item" data-view="sessions">Sessions</button>
+  </nav>
+
+  <main class="content">
+
+    <section id="view-groups" class="view is-active">
+      <div class="view-toolbar">
+        <button id="clusterBtn" class="btn btn-primary">Group my tabs</button>
+        <span id="groupsStatus" class="status-text"></span>
+      </div>
+      <div id="groupsList" class="list"></div>
+    </section>
+
+    <section id="view-cleanup" class="view">
+      <div class="view-toolbar">
+        <button id="refreshSuggestionsBtn" class="btn btn-ghost">Rescan</button>
+        <button id="closeSelectedBtn" class="btn btn-danger" disabled>Close selected (0)</button>
+      </div>
+      <p class="hint">Tabs you haven't touched in a while, or exact duplicates. Nothing closes without your say.</p>
+      <div id="cleanupList" class="list"></div>
+    </section>
+
+    <section id="view-sessions" class="view">
+      <div class="view-toolbar save-row">
+        <input id="sessionNameInput" type="text" placeholder="Name this session (optional)" />
+        <button id="saveSessionBtn" class="btn btn-primary">Save current</button>
+      </div>
+      <div id="sessionsList" class="list"></div>
+    </section>
+
+  </main>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
